@@ -11,12 +11,18 @@ class App extends Component{
       robots: robots
     }
   }
+  handleSearch = (event) => {
+    this.setState({
+      searchInput: event.target.value
+    })
+  }
 
   render() {
     return (
       <div>
         <h1>RoboFriends</h1>
-        <SearchBox />
+        <SearchBox inputField={this.state.searchInput}
+        handleChange={this.handleSearch} />
         <CardList robots={this.state.robots} />
       </div>
     )
